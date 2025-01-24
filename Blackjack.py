@@ -1,5 +1,6 @@
 """ Blackjack class """
 
+
 class Blackjack():
     def __init__(self):
         
