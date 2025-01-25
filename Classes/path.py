@@ -14,10 +14,9 @@ class Path():
     """
     def __init__(self):
         # paths in UserData
-
+        self.settings = r"UserData\\settings.yaml"
 
         # paths in GameData
-        self.settings = r"GameData\\Settings.yml"
         self.audio_dir = r"GameData\\Audio"
 
     def initiate(self):
@@ -26,6 +25,7 @@ class Path():
         """
         # get game folder path
         dir = os.path.dirname(os.path.abspath(__file__))
+        dir = os.path.dirname(dir)
         
         # iterate through every arg and add the game folder path
         for attr_name in vars(self):

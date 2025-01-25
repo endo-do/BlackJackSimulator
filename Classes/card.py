@@ -1,8 +1,8 @@
 """Card class """
 
 
-from Blackjack import Blackjack
-from Functions.DataHandling import find_key_to_value
+from Classes.blackjack import Blackjack
+from Functions.utilities import find_key_to_value
 
 
 BJ = Blackjack()

@@ -2,7 +2,7 @@
 
 
 import random
-from Blackjack import Blackjack
+from Classes.blackjack import Blackjack
 
 
 BJ = Blackjack()

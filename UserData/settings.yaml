@@ -1,0 +1,7 @@
+GeneralSettings:
+  audio: true
+Keybinds:
+  hit: ["w", "up"]
+  stand: ["s", "down"]
+  double: ["d", "left"]
+  split: ["a", "right"]
