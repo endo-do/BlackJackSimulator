@@ -21,7 +21,6 @@ if __name__ == "__main__":
     PATH.initiate()
     SETTINGS.load()
     play_sound("intro")
-    input()
 
     while True:
         UI.clear()
