@@ -25,6 +25,23 @@ class Deck:
         self.shufflecard = round(self.shufflecard_percentage*self.decks*52)
 
         # generate the deck of cards
-        for suit in BJ.suits:
-            for name in BJ.card_names.keys():
-                self.cards[f"{suit}{name}"] = 4*self.decks
+        for suit in BJ.suits.values():
+            for name in BJ.card_names.values():
+                self.cards[f"{suit}.{name}"] = 4*self.decks
+
+    def get_random_card(self):
+        """
+        Returns the name of a random card that is still remaining in the deck.
+
+        Raises:
+            ValueError: Raises ValueError if no cards are remaining.
+
+        Returns:
+            str: The name of the random card.
+        """
+        available = [card for card, count in self.cards.items() if count > 0]
+        
+        if not available:
+            raise ValueError("No cards remaining")
+        
+        return random.choice(available)

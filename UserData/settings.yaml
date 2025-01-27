@@ -1,5 +1,5 @@
 GeneralSettings:
-  audio: true
+  audio: false
 Keybinds:
   hit: ["w", "up"]
   stand: ["s", "down"]

@@ -16,6 +16,6 @@ class Settings():
     def load(self):
         with open(PATH.settings, "r") as f:
             settings = yaml.safe_load(f)
-            self.aduio = settings["GeneralSettings"]["audio"]
+            self.audio = settings["GeneralSettings"]["audio"]
             for bind in settings["Keybinds"]:
                 self.keybinds[bind] = settings["Keybinds"][bind]
