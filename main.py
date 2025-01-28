@@ -13,8 +13,8 @@ from Functions.audio import play_sound
 PATH = Path()
 UI = UserInterface()
 SETTINGS = Settings()
-DRILL = Drill(SETTINGS)
-FREEPLAY = Freeplay(SETTINGS)
+DRILL = Drill(SETTINGS, UI)
+FREEPLAY = Freeplay(SETTINGS, UI)
 
 
 if __name__ == "__main__":
@@ -23,10 +23,8 @@ if __name__ == "__main__":
     play_sound("intro", SETTINGS.audio)
 
     while True:
-        UI.clear()
-        UI.print_title()
-        UI.print_banner(left_prompt="[e] - exit", middle_prompt="Main Menu", left_style="italic", middle_style="bold")
-        UI.print_user_options(["Freeplay", "Drill", "Settings"])
+        UI.set_banner(prompt_1="[e] - exit", prompt_2=" [1] - Freeplay", prompt_3="[2] - Drill", prompt_4="[3] - Settings", style_1="italic")
+        UI.main()
         user_input = get_input()
         if user_input == "1": 
-            FREEPLAY.main()            
+            FREEPLAY.main()
