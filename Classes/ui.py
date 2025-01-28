@@ -3,6 +3,7 @@
 
 import os
 from Functions.utilities import style_text
+from Functions.utilities import center_prompt
 
 class UI:
     """
@@ -22,33 +23,36 @@ class UI:
         """
         self.border = "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  "
 
-    def print_banner(self, left="", middle="", right="", length=19, styles = ["normal", "normal", "normal"]):
+    def print_banner(self, left_prompt="", middle_prompt="", right_prompt="",
+                     left_style="normal", middle_style="normal", right_style="normal",
+                     length=19, ):
         """
         Generates and prints a banner with three brackets and automaticly equal padding
 
         Args:
-            left (str, optional): The title of the left bracket. Defaults to "".
-            middle (str, optional): The title of the middle bracket. Defaults to "".
-            right (str, optional): AThe title of the right bracket. Defaults to "".
+            left_prompt (str, optional): The title of the left bracket. Defaults to "".
+            middle_prompt (str, optional): The title of the middle bracket. Defaults to "".
+            right_prompt (str, optional): The title of the right bracket. Defaults to "".
+            left_style (str, optional): The style of the left title. Defaults to 'normal'.
+            middle_style (str, optional): The style of the middle title. Defaults to 'normal'.
+            right_style (str, optional): The style of the right title. Defaults to 'normal'.
             length (int, optional): The total length of each bracket. Defaults to 19.
-            styles  (list, optional): A list containing the text styles of each title.
-                                      Defaults to ["normal", "normal", "normal"]
+            
 
         Raises:
             ValueError: Raises error if a title exceeds the maximum bracket length.
         """
         banner = []
+        styles = (left_style, middle_style, right_style)
+
+        for index, prompt in enumerate((left_prompt, middle_prompt, right_prompt)):
         
-        for index, i in enumerate((left, middle, right)):
-        
-            if len(i) > length:
-                raise ValueError(f"The word '{i}' exceeds the maximum length of 19 chars")
+            if len(prompt) > length:
+                raise ValueError(f"The word '{prompt}' exceeds the maximum length of 19 chars")
             
-            padding = length - len(i)
-            right_padding = padding // 2
-            left_padding = padding - right_padding
-            i = style_text(i, styles[index])
-            banner.append(f"{" " * left_padding}{i}{" " * right_padding}")
+            prompt = center_prompt(prompt, length)
+            prompt = style_text(prompt, styles[index])
+            banner.append(prompt)
 
         print(self.border)
         print(f" |{banner[0]}¦{banner[1]}¦{banner[2]}| ")

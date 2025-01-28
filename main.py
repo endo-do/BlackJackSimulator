@@ -25,9 +25,8 @@ if __name__ == "__main__":
     while True:
         UI.clear()
         UI.print_title()
-        UI.print_banner(left="[e] - exit", middle="Main Menu", styles=["italic", "bold", "normal"])
+        UI.print_banner(left_prompt="[e] - exit", middle_prompt="Main Menu", left_style="italic", middle_style="bold")
         UI.print_user_options(["Freeplay", "Drill", "Settings"])
         user_input = get_input()
         if user_input == "1": 
-            FREEPLAY.main()
-            input()
+            FREEPLAY.main()            

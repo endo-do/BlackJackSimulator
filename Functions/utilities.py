@@ -47,4 +47,28 @@ def style_text(text, style):
         "bold":["\033[1m", "\033[0m"],
         "italic":["\033[3m", "\033[0m"]
     }
+    
     return f"{styles[style][0]}{text}{styles[style][1]}"
+
+
+def center_prompt(prompt, length, space=" "):
+    """
+    Centers a prompt with evenly distributed spaces around it.
+
+    Args:
+        prompt (str): The prompt to be centered.
+        length (int): The total length of the resulting string.
+        space (str, optional): The character used for padding. Defaults to a single space.
+
+    Returns:
+        str: The string with the centered prompt. If the prompt's length exceeds
+             the specified total length, it raises a ValueError.
+    """
+    if len(prompt) >= length:
+        raise ValueError(f"The word '{prompt}' exceeds the maximum length of {length} chars")
+    
+    padding = length - len(prompt)
+    left_padding = padding // 2
+    right_padding = padding - left_padding
+
+    return f"{space * left_padding}{prompt}{space * right_padding}"

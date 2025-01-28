@@ -15,6 +15,8 @@ def confirm(delay=1):
     print(f"Press any key or wait {delay} sec to continue")
     startTime = time.time()
     inp = None
+    if delay == 'inf':
+        delay = float('inf')
     
     while True:
     
