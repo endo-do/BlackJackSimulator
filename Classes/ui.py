@@ -65,7 +65,7 @@ class UI:
 
         display = []
         display.append(self.border)
-        display.append(f"      |{banner[0]}¦{banner[1]}¦{banner[2]}|{banner[3]}|      ")
+        display.append(f"      |{banner[0]}¦{banner[1]}¦{banner[2]}¦{banner[3]}|      ")
         display.append(self.border)
 
         self.banner = display

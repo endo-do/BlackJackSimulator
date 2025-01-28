@@ -61,6 +61,9 @@ def get_input():
     
     elif first_byte == b'\x1b':
         return "esc"
+    
+    elif first_byte == b'\x08':
+        return "backspace"
 
     else:
 

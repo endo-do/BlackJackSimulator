@@ -23,8 +23,9 @@ if __name__ == "__main__":
     play_sound("intro", SETTINGS.audio)
 
     while True:
-        UI.set_banner(prompt_1="[e] - exit", prompt_2=" [1] - Freeplay", prompt_3="[2] - Drill", prompt_4="[3] - Settings", style_1="italic")
+        UI.set_banner(prompt_1="[e] exit", prompt_2=" [1] Freeplay", prompt_3=f"[2] Drill", prompt_4="[3] Settings", style_1="italic")
         UI.main()
         user_input = get_input()
         if user_input == "1": 
+            play_sound("select", SETTINGS.audio)
             FREEPLAY.main()

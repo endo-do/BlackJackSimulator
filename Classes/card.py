@@ -27,18 +27,21 @@ class Card():
         self.value = BJ.card_values[self.display_name]
 
 
-    def get_printout(self):
+    def get_printout(self, hidden=False):
         """
         Returns a 4 line ascii art of the card displaying its value and suit.
+
+        Args:
+            hidden (bool, optional): Hides the name and the suit if True. Defaults to False.
 
         Returns:
             list: The list containing the 4 lines of ascii art.
         """
         self.printout = [
             f" ___ ",
-            f"|{self.display_name}  |",
-            f"| {self.display_suit} |",
-            f"|__{self.display_name}|",
+            f"|{"?" if hidden else self.display_name}  |",
+            f"| {"?" if hidden else self.display_suit} |",
+            f"|__{"?" if hidden else self.display_name}|",
         ]
         return self.printout
 

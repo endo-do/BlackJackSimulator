@@ -1,7 +1,12 @@
 GeneralSettings:
-  audio: false
+  audio: true
+  auto_bet: true
+  delay: 1
+  hint_mode: false
 Keybinds:
   hit: ["w", "up"]
   stand: ["s", "down"]
   double: ["d", "left"]
   split: ["a", "right"]
+Data:
+  balance: 1000
